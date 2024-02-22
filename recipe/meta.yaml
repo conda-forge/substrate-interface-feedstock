@@ -8,8 +8,6 @@ package:
 source:
   url: https://github.com/polkascan/py-substrate-interface/archive/refs/tags/v{{ version }}.tar.gz
   sha256: fd87075bb233634b11406e4e31b1cd7e86bd16369b1d4d4e6e6a37c5c8f270ea
-  patches:
-    - 1_remove-test_query_subscription.patch
 
 build:
   noarch: python
