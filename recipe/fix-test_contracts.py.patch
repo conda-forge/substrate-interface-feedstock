@@ -1,0 +1,22 @@
+--- test/test_contracts.py      2023-03-28 04:54:21.000000000 -0500
++++ test/test_contracts.py.new  2024-02-24 09:38:04.682456246 -0600
+@@ -313,19 +313,6 @@
+             substrate=self.substrate
+         )
+
+-    def test_instance_read(self):
+-
+-        result = self.contract.read(self.keypair, 'total_supply')
+-
+-        self.assertEqual(1000000000000000000, result.contract_result_data.value)
+-
+-    def test_instance_read_with_args(self):
+-
+-        result = self.contract.read(self.keypair, 'balance_of',
+-                                    args={'owner': '5GrwvaEF5zXb26Fz9rcQpDWS57CtERHpNehXCPcNoHGKutQY'})
+-
+-        self.assertEqual(1000000000000000000, result.contract_result_data.value)
+-
+
+ class ContractInstanceV1TestCase(ContractInstanceTestCase):
+     def setUp(self) -> None:

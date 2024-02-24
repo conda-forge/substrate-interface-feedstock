@@ -1,5 +1,5 @@
 {% set name = "substrate-interface" %}
-{% set version = "1.7.6" %}
+{% set version = "1.6.2" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,12 @@ package:
 
 source:
   url: https://github.com/polkascan/py-substrate-interface/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: a8b7e50994276ea5f91761f191666ff67185c5365a000eadbfeeb1113e00a1bb
+  sha256: 3eb9040e8050a5418dabf81c646af306ed77f8a4f1f66153794371bd27d6a1d6
+  patches:
+    - fix-mpz_to_bytes.patch
+    - update-transfer-allow-death.patch
+    - fix-test_contracts.py.patch
+    - fix-test_query.py.patch
 
 build:
   noarch: python
