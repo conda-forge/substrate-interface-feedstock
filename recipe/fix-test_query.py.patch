@@ -1,0 +1,23 @@
+--- test/test_query.py  2024-02-24 09:59:48.534976802 -0600
++++ test/test_query.py  2024-02-24 09:59:10.878422422 -0600
+@@ -58,13 +58,13 @@
+             params=['GSEX8kR4Kz5UZGhvRUCJG93D5hhTAoVZ5tAe6Zne7V42DSi']
+         )
+
+-        self.assertEqual(
+-            {
+-                'nonce': 0, 'consumers': 0, 'providers': 0, 'sufficients': 0,
+-                'data': {
+-                    'free': 0, 'reserved': 0, 'misc_frozen': 0, 'fee_frozen': 0
+-                }
+-            }, result.value)
++        self.assertEqual(0, result.value["nonce"])
++        self.assertEqual(0, result.value["consumers"])
++        self.assertEqual(0, result.value["providers"])
++        self.assertEqual(0, result.value["sufficients"])
++        self.assertEqual(0, result.value["data"]["free"])
++        self.assertEqual(0, result.value["data"]["frozen"])
++        self.assertEqual(0, result.value["data"]["reserved"])
+
+     def test_non_existing_query(self):
+         with self.assertRaises(StorageFunctionNotFound) as cm:
