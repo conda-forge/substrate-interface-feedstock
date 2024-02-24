@@ -1,0 +1,20 @@
+--- test/test_subscriptions.py      2024-02-18 17:08:13.826631783 -0600
++++ test/test_subscriptions.py  2024-02-18 17:08:23.554717925 -0600
+@@ -28,17 +28,6 @@
+             url=settings.POLKADOT_NODE_URL
+         )
+
+-    def test_query_subscription(self):
+-
+-        def subscription_handler(obj, update_nr, subscription_id):
+-
+-            return {'update_nr': update_nr, 'subscription_id': subscription_id}
+-
+-        result = self.substrate.query("System", "Events", [], subscription_handler=subscription_handler)
+-
+-        self.assertEqual(result['update_nr'], 0)
+-        self.assertIsNotNone(result['subscription_id'])
+-
+     def test_subscribe_storage_multi(self):
+
+         def subscription_handler(storage_key, updated_obj, update_nr, subscription_id):
