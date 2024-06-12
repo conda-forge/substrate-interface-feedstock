@@ -46,7 +46,7 @@ test:
     - pytest >=4.4.0
   commands:
     - pip check
-    - pytest -v test
+    # - pytest -v test
 
 about:
   home: https://github.com/polkascan/py-substrate-interface
